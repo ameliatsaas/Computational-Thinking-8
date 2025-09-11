@@ -1,0 +1,7 @@
+print("why did  the chicken cross the playground?")
+input("") 
+print("To get to the other slide!")
+input("")
+print("what do you call a haunted chicken?")
+input("")
+print("a poultry-geist!")
