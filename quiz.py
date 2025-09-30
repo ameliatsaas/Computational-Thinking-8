@@ -10,7 +10,6 @@ elif answer == "B":
     aestheticfall += 1
 elif answer == "C":
     aestheticfall += 1
-    halloweencore += .5
 elif answer == "D":
     halloweencore += 1
 else:
