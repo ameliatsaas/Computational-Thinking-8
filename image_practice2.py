@@ -31,11 +31,11 @@ window.tracer(0)
 
 ######################################################################
 # Section 2 - Your code
-set_background("fall")
-sprite1 = create_sprite("taytay", 0, 0)
+set_background("erastour")
+sprite1 = create_sprite("", 0, 0)
 
-sprite2 = create_sprite("alien",-120,150)
-sprite2.color("black")
+sprite2 = create_sprite("snoopy",-120,150)
+sprite2.color("white")
 sprite2.write("",font = ("Arial", 40, "normal"))
 sprite2.hideturtle()
 ######################################################################
