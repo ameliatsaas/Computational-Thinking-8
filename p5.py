@@ -54,6 +54,8 @@ window.tracer(0)
 # TODO - set the starting value for your variable
 
 s1 = create_sprite("snoopy flying",0,0)
+s2 = create_sprite("circle2") # sprite
+set_background("silverstar")
 
 
 # Section 3: Controls
@@ -62,46 +64,76 @@ s1 = create_sprite("snoopy flying",0,0)
 
 speed = 0
 
-def move_up():
-	global speed
-	speed = 5
+
+ 
 
 
+
+
+
+#making the sprite move randomly
+import random
+
+def update():
+	x = s2.xcor()
+	y = s2.ycor()
+
+	x += random.randint(-20, 20)
+	y += random.randint(-20, 20)
+
+	s2.goto(x, y)
 	                   
 
 
+#defining my controls
+def move_up():
+    s1.setheading(90)
+    s1.forward(10)
 
-window.onkeypress(move_up,"space")
+
+def move_down():
+    s1.setheading(270)
+    s1.forward(10)
+
+
+def move_left():
+    s1.setheading(180)
+    s1.forward(10)
+
+
+def move_right():
+    s1.setheading(0)
+    s1.forward(10)
+
+
+window.onkeypress(move_up, "w")
+window.onkeypress(move_down, "s")
+window.onkeypress(move_left, "a")
+window.onkeypress(move_right, "d")
+
 
 # Section 4: Game Loop
 window.listen()
 timer = 0
 while True:
-	time.sleep(0.1)
-	timer += 1  
-	s1.setheading(270)
-	s1.forward(1)
-	speed -= .1
-	if speed < 0:
-		s1.setheading(270)
-		s1.forward(-speed)
-	elif speed > 0:
-		s1.setheading(90)
-		s1.forward(speed)
+    time.sleep(0.1)
+    timer += 1
+    update()
 
-	
-    
- 	# TODO - code for automatic actions
+    distance = s1.distance(s2)
+# id you get too far away, the game ends
+    if distance > 200:
+        print("Game Over!")
+        window.bye()
+        break
+
+    window.update()
 
 
 
 
 
 
-	window.update()
 
-	# if :
-	# 	break
-	
 
-print("Game Over")
+
